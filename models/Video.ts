@@ -37,3 +37,7 @@ const videoSchema = new Schema<IVideo>(
   },
   { timestamps: true }
 );
+
+const Video = models?.Video || model<IVideo>("Video", videoSchema);
+
+export default Video;
