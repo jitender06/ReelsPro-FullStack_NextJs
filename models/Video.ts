@@ -1,5 +1,4 @@
 import mongoose, { Schema, model, models } from "mongoose";
-import bcrypt from "bcryptjs";
 
 export const VIDEO_DIMENSIONS = {
   width: 1080,
@@ -10,24 +9,22 @@ export interface IVideo {
   _id?: mongoose.Types.ObjectId;
   title: string;
   description: string;
-  videourl: string;
-  thumbnailurl: string;
+  videoUrl: string;
+  thumbnailUrl: string;
   controls?: boolean;
   transformation?: {
     height: number;
     width: number;
     quality?: number;
   };
-  createdAt?: Date;
-  updatedAt?: Date;
 }
 
 const videoSchema = new Schema<IVideo>(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
-    videourl: { type: String, required: true },
-    thumbnailurl: { type: String, required: true },
+    videoUrl: { type: String, required: true },
+    thumbnailUrl: { type: String, required: true },
     controls: { type: Boolean, default: true },
     transformation: {
       height: { type: Number, default: VIDEO_DIMENSIONS.height },
